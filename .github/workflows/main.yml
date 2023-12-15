@@ -1,25 +1,22 @@
 name: Sync to Hugging Face hub
-on: 
+
+on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
-
   workflow_dispatch:
 
 jobs:
   Sync-to-hub:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fet-depth: 0
-    - name: Add remote
-      env:
-        HF: ${{ secrets.HF }}
-      run: git remote add space https://amutabazi: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@huggingface.co/spaces/amutabazi/demo2
-    - name: Push to hub
-      env:
-        HF: ${{ secrets.HF }}
-      run: git push --force https://amutabazi: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@huggingface.co/spaces/amutabazi/demo2 main
-
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Fetch the complete commit history
+      - name: Add remote
+        run: git remote add space https://amutabazi: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@huggingface.co/spaces/amutabazi/demo2
+      - name: Fetch all history from remote
+        run: git fetch --depth=1000000  # Fetch a large number of commits to ensure the full history
+      - name: Push to hub
+        run: git push --force https://amutabazi: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@huggingface.co/spaces/amutabazi/demo2 main
