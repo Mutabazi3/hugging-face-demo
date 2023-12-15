@@ -19,4 +19,4 @@ jobs:
       - name: Fetch all history from remote
         run: git fetch --depth=1000000  # Fetch a large number of commits to ensure the full history
       - name: Push to hub
-        run: git push --force https://amutabazi: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@huggingface.co/spaces/amutabazi/demo main
+        run: git push --force https://amutabazi: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@huggingface.co/spaces/amutabazi/demo2 main
