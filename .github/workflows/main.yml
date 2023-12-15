@@ -16,9 +16,9 @@ jobs:
         fet-depth: 0
     - name: Add remote
       env:
-        HF: ${{ secrets.HF }}
-      run: git remote add space https://amutabazi:$HF@huggingface.co/spaces/amutabazi/demo2
+        HF: ${{ secrets.HG }}
+      run: git remote add space https://amutabazi:$HG@huggingface.co/spaces/amutabazi/demo2
     - name: Push to hub
       env:
-        HF: ${{ secrets.HF }}
-      run: git push --force https://amutabazi:$HF@huggingface.co/spaces/amutabazi/demo2 main
+        HF: ${{ secrets.HG }}
+      run: git push --force https://amutabazi:$HG@huggingface.co/spaces/amutabazi/demo2 main
